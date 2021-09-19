@@ -17,6 +17,38 @@ class MealItem extends StatelessWidget {
     required this.affordability,
   }) : super(key: key);
 
+  String get complexityText {
+    switch (complexity) {
+      case Complexity.Simple:
+        return 'Simple';
+
+      case Complexity.Challenging:
+        return 'Challenging';
+
+      case Complexity.Hard:
+        return 'Hard';
+
+      default:
+        return '';
+    }
+  }
+
+  String get affordabilityText {
+    switch (affordability) {
+      case Affordability.Affordable:
+        return 'Affordable';
+
+      case Affordability.Luxurious:
+        return 'Luxurious';
+
+      case Affordability.Pricey:
+        return 'Luxurious';
+
+      default:
+        return '';
+    }
+  }
+
   void selectMeal() {}
 
   @override
@@ -67,6 +99,47 @@ class MealItem extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.schedule,
+                      ),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Text('$duration min'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.work,
+                      ),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Text(complexityText),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.attach_money,
+                      ),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Text(affordabilityText),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),
