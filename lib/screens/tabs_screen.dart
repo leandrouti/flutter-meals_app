@@ -10,23 +10,28 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
+  PreferredSizeWidget get tabsWidget {
+    return const TabBar(tabs: [
+      Tab(
+        icon: Icon(Icons.category),
+        text: 'Categories',
+      ),
+      Tab(
+        icon: Icon(Icons.star),
+        text: 'Favorites',
+      ),
+    ]);
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
+      initialIndex: 0,
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Meals'),
-          bottom: const TabBar(tabs: [
-            Tab(
-              icon: Icon(Icons.category),
-              text: 'Categories',
-            ),
-            Tab(
-              icon: Icon(Icons.star),
-              text: 'Favorites',
-            ),
-          ]),
+          bottom: tabsWidget,
         ),
         body: const TabBarView(
           children: [
