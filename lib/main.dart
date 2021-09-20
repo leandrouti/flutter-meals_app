@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
 
   List<Meal> _availableMeals = DUMMY_MEALS;
 
-  void _setFilters(Map<String, bool> filterData) {
+  void _setFilters(BuildContext context, Map<String, bool> filterData) {
     setState(() {
       _filters = filterData;
 
@@ -45,6 +45,9 @@ class _MyAppState extends State<MyApp> {
         return true;
       }).toList();
     });
+    Navigator.of(context).pushReplacementNamed(
+      '/',
+    );
   }
 
   @override
