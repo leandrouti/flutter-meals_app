@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './screens/filters_screen.dart';
 import './screens/tabs_screen.dart';
 import './screens/category_meals_screen.dart';
 import './screens/categories_screen.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
       routes: {
         CategoryMealsScreen.routeName: (context) => const CategoryMealsScreen(),
         MealDetailScreen.routeName: (context) => const MealDetailScreen(),
+        FiltersScreen.routeName: (context) => const FiltersScreen(),
       },
       // Goes to the category screen when routing to unknown route.
       onGenerateRoute: (settings) {
